@@ -1,5 +1,6 @@
 var http = require("http");
 var fs = require("fs");
+var socketio = require('socket.io');
 
 var server = http.createServer(function(request, response) {
 
@@ -18,7 +19,23 @@ var server = http.createServer(function(request, response) {
 
 });
 
-var port = process.env.PORT || 1337;
-server.listen(port);
+var io = socketio.listen(server);
 
+io.sockets.on("connection",function(socket){
+    setInterval(function(){
+        var timestamp = Date.now();
+        console.log("Emitted : " + timestamp);
+        socket.emit('timer', timestamp);
+    }, 2000);
+    socket.on('submit',function(data){
+        console.log("Submitted : " + data)
+    })
+});
+
+var port = process.env.PORT || 8080;
+server.listen(8080);
+console.log("Server running !!!");
+
+
+// server.listen(port);
 console.log("Server running at http://localhost:%d", port);
