@@ -1,6 +1,6 @@
 <html>
     <head>
-        <h1>Sample Client 2</h1>
+        <h1>Sample Client 3</h1>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     </head>
     <body onload="onload()">
@@ -9,7 +9,7 @@
             var socket;
             function onload(){
                 socket = io.connect();
-                console.log(socket);
+                console.log("socket is : " + socket);
                 socket.on('timer', function(data){
                     document.getElementById("timer").innerHTML = data;
                 });
