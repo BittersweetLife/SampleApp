@@ -1,6 +1,6 @@
 var http = require("http");
 var fs = require("fs");
-// var socketio = require('socket.io');
+var socketio = require('socket.io');
 
 var server = http.createServer(function(request, response) {
 
