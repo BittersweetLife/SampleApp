@@ -16,7 +16,7 @@ var server = http.createServer(function(request, response) {
     });
 });
 
-// var io = socketio.listen(server);
+var io = socketio.listen(server);
 
 // io.sockets.on("connection",function(socket){
 //     setInterval(function(){
