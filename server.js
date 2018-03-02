@@ -20,9 +20,9 @@ var io = socketio.listen(server);
 
 io.sockets.on("connection",function(socket){
     setInterval(function(){
-        // var timestamp = Date.now();
-        // console.log("Emitted : " + timestamp);
-        // socket.emit('timer', timestamp);
+        var timestamp = Date.now();
+        console.log("Emitted : " + timestamp);
+        socket.emit('timer', timestamp);
     }, 2000);
     socket.on('submit',function(data){
         // console.log("Submitted : " + data)
