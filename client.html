@@ -18,11 +18,13 @@
             function getMMDDYY(ticks) {
   var date = new Date(ticks);
   var mm = date.getMonth()+1;
-  var dd = date.getdate();
+  var dd = date.getDate();
   var yy = new String(date.getFullYear()).substring(2);
   if (mm < 10) mm = "0"+mm;
   if (dd < 10) dd = "0"+dd;
-  return ""+mm+dd+yy;
+
+  var dateString = date.getHours() + ":" + date.getMinutes()+":"+date.getSeconds()
+  return ""+mm+"/"+dd+"/"+yy + " - " +dateString;
 }
 
             </script>
