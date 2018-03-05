@@ -23,7 +23,7 @@ io.sockets.on("connection",function(socket){
         var timestamp = Date.now();
         console.log("Emitted : " + timestamp);
         socket.emit('timer', timestamp);
-    }, 2000);
+    }, 1000);
     socket.on('submit',function(data){
         // console.log("Submitted : " + data)
     })
