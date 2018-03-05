@@ -11,10 +11,20 @@
                 socket = io.connect();
                 console.log("socket is : " + socket);
                 socket.on('timer', function(data){
-                    document.getElementById("timer").innerHTML = data;
+                    document.getElementById("timer").innerHTML = getMMDDYY(data);
                 });
             };
             
+            function getMMDDYY(ticks) {
+  var date = new Date(ticks);
+  var mm = date.getMonth()+1;
+  var dd = date.getdate();
+  var yy = new String(date.getFullYear()).substring(2);
+  if (mm < 10) mm = "0"+mm;
+  if (dd < 10) dd = "0"+dd;
+  return ""+mm+dd+yy;
+}
+
             </script>
             <p>Timer : <span id="timer"></span></p>
             </body>
